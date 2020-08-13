@@ -7,26 +7,20 @@ resource "azuread_application" "aad_app" {
   oauth2_allow_implicit_flow  = var.allow_implicit_flow
   group_membership_claims     = "SecurityGroup"
 
-  required_resource_access {
-    
-    resource_app_id = "00000003-0000-0000-c000-000000000000"
-    
-    resource_access {
-      # "MSGraph.Group.Read.All"
-      id   = "5b567255-7703-4780-807c-7be8301ae99b"
-      type = "Role"
-    }
-    resource_access {
-      # "MSGraph.GroupMember.Read.All"
-      id   = "98830695-27a2-44f7-8c18-0c3ebc9698f6"
-      type = "Role"
-    }
-    resource_access {
-      # "MSGraph.User.Read.All"
-      id   = "df021288-bdef-4463-88db-98f22de89214"
-      type = "Role"
+  dynamic "required_resource_access" {
+    for_each = var.required_resources 
+    content {
+        # This need to be a Variable, this var is for dev
+        resource_app_id = required_resource_access.app_id
+        #"a896716e-5acd-4475-a643-abc724df0c92"
+        
+        resource_access {
+          id   = required_resource_access.resource_id  #"./api://erx-dev-webapi/user_impersonation"
+          type = required_resource_access.resource_type # "Scope"
+        }
     }
   }
+
 }
 
 resource "random_password" "aad_app" {
