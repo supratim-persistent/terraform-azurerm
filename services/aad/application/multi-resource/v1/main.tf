@@ -12,7 +12,7 @@ resource "azuread_application" "aad_app" {
     content {
         # This need to be a Variable, this var is for dev
         resource_app_id = required_resource_access.app_id
-        #"a896716e-5acd-4475-a643-abc724df0c92"
+        #"a89671-cd-4475-a643-abc724df0c92"
         
         resource_access {
           id   = required_resource_access.resource_id  #"./api://erx-dev-webapi/user_impersonation"
