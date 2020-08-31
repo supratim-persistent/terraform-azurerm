@@ -23,8 +23,14 @@ resource "azurerm_function_app" "function_app" {
   site_config {
 
     pre_warmed_instance_count = 1
-    
-  }
+    dynamic "ip_restriction" {
+        for_each = var.ip_rules_settings
+        content {
+            ip_address = ip_restriction.value.ip_address
+            subnet_mask = ip_restriction.value.subnet_mask
+            }
+        }
+       }
 
   identity {
     type = "SystemAssigned"
