@@ -24,7 +24,7 @@ resource "azurerm_function_app" "function_app" {
 
     pre_warmed_instance_count = 1
     dynamic "ip_restriction" {
-        for_each = var.ip_rules_settings
+        for_each = var.ip_rules_settings == "" ? [] : [var.ip_rules_settings]
         content {
             ip_address = ip_restriction.value.ip_address
             }
