@@ -45,3 +45,9 @@ variable "observability_settings" {
     workspace_id              = string
   })
 }
+variable "ip_rules_settings" {
+    type = list(object({
+        ip_address    = string
+        subnet_mask = string
+    }))
+}
