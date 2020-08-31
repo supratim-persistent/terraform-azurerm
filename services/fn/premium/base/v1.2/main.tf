@@ -27,7 +27,6 @@ resource "azurerm_function_app" "function_app" {
         for_each = var.ip_rules_settings
         content {
             ip_address = ip_restriction.value.ip_address
-            subnet_mask = ip_restriction.value.subnet_mask
             }
         }
        }
