@@ -24,6 +24,7 @@ module "api_fn" {
   context = var.context
   service_settings = local.merged_service_settings
   observability_settings = var.observability_settings
+  ip_rules_settings = var.ip_rules_settings
 
 }
 
