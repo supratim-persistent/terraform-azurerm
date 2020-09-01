@@ -24,7 +24,7 @@ resource "azurerm_function_app" "function_app" {
 
     pre_warmed_instance_count = 1
     dynamic "ip_restriction" {
-        for_each = var.context.environment_name == "dev" ? var.dev_ip_rules_settings : var.context.environment_name == "ops" ? var.ops_ip_rules_settings : var.context.environment_name == "int" ? var.int_ip_rules_settings : var.test_ip_rules_settings
+        for_each = var.ip_rules_settings
         content {
             ip_address = ip_restriction.value.ip_address
             }
