@@ -55,3 +55,13 @@ variable "ops_ip_rules_settings" {
       ip_address = string
  }))
 }
+variable "dev_ip_rules_settings" {
+    type = list(object({
+      ip_address = string
+ }))
+}
+variable "ops_ip_rules_settings" {
+    type = list(object({
+      ip_address = string
+ }))
+}
