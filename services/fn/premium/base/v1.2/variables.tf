@@ -32,7 +32,7 @@ variable "observability_settings" {
   })
 }
 variable "ip_rules_settings" {
-    type = list(object({
+    type = map(list(object({
         ip_address    = string
-    }))
+    })))
 }
