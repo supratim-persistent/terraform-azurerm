@@ -26,6 +26,8 @@ module "api_fn" {
   observability_settings = var.observability_settings
   dev_ip_rules_settings = var.dev_ip_rules_settings
   ops_ip_rules_settings = var.ops_ip_rules_settings
+  int_ip_rules_settings = var.int_ip_rules_settings
+  test_ip_rules_settings = var.test_ip_rules_settings
 
 }
 
