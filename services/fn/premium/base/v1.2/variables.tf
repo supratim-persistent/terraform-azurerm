@@ -33,6 +33,6 @@ variable "observability_settings" {
 }
 variable "ip_rules_settings" {
     type = list(object({
-      ip_restriction = string
+      ip_address = string
  }))
 }
