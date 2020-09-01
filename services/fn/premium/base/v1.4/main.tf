@@ -24,10 +24,9 @@ resource "azurerm_function_app" "function_app" {
     dynamic "ip_restriction" {
         
       for_each = var.ip_rules_settings
-      count = length(ip_restriction.value[var.context.environment_name])
-        
+              
         content {
-            ip_address = element(ip_restriction.value[var.context.environment_name], count.index)
+            ip_address = ip_restriction.value[var.context.environment_name].ip_address
             }
         }
        }
