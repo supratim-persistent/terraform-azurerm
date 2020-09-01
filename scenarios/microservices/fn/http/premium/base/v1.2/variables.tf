@@ -50,17 +50,7 @@ variable "dev_ip_rules_settings" {
       ip_address = string
  }))
 }
-variable "ops_ip_rules_settings" {
-    type = list(object({
-      ip_address = string
- }))
-}
-variable "int_ip_rules_settings" {
-    type = list(object({
-      ip_address = string
- }))
-}
-variable "test_ip_rules_settings" {
+variable "ip_rules_settings" {
     type = list(object({
       ip_address = string
  }))
