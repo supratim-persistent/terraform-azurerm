@@ -1,5 +1,5 @@
 # user story 3676 added Security settings to storage account
-data.azurerm_storage_account.storage_account {
+data "azurerm_storage_account" "storage_account_ds" {
   name                      = azurerm_storage_account.storage_account.name
   min_tls_version           = var.min_tls_version
   allow_blob_public_access  = var.allow_blob_public_access
