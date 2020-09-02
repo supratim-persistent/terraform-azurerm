@@ -6,7 +6,7 @@ locals {
     combined_settings = merge(local.required_settings, var.service_settings.app_settings)
     
   #### - Getting all the ips from used defined. API Management and other services like DataFactory
-    combined_ip_list = concat(var.ip_rules_settings.user_defined_iplist, var.ip_rules_settings.apim_iplist, var.ip_rules_settings.services_iplist[var.context.environment_name])
+    combined_ip_list = concat(var.ip_rules_settings.user_defined_iplist, var.ip_rules_settings.apim_iplist, var.ip_rules_settings.services_iplist[var.context.location_suffix])
   #### - Converting list to list of objects before passing to dynamic block
     ip_list = [
          for ip in local.combined_ip_list: {
