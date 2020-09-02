@@ -46,9 +46,9 @@ variable "observability_settings" {
   })
 }
 variable "ip_rules_settings" {
-    type = object({
+  type = object({
     user_defined_iplist       = list(string)
     apim_iplist               = list(string)
-    services_iplist           = map(list(string)
-    })
+    services_iplist           = map(list(string))
+  })
 }
