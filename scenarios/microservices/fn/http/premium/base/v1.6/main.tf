@@ -11,6 +11,7 @@ locals {
     runtime_type      = var.service_settings.runtime_type
     app_settings      = local.combined_settings
     plan_id           = var.host_settings.plan_id
+    ip_whitelist_enabled  = var.service_settings.ip_whitelist_enabled
     storage_account   = var.host_settings.storage_account
   }
 }
