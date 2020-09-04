@@ -35,7 +35,7 @@ resource "azurerm_function_app" "function_app" {
     pre_warmed_instance_count = 1
     dynamic "ip_restriction" {
         
-      for_each = var.service_settings.ip_whitelist_enabled ? local.ip_list : []
+      for_each = var.service_settings.ip_whitelist_enabled ? ip_block.ip_list : []
               
         content {
             ip_address = ip_restriction.value.ip_address
