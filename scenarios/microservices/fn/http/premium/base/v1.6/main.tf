@@ -17,7 +17,8 @@ locals {
 
 module "api_fn" {
   
-  source                        = "../../../../../../../services/fn/premium/base/v1.6"
+  #source                        = "../../../../../../../services/fn/premium/base/v1.7"
+  source                        = "/mnt/c/Users/supratim_mukherjee/src/fork/terraform-azurerm/services/fn/premium/base/v1.7"
   
   context = var.context
   service_settings = local.merged_service_settings
