@@ -18,7 +18,7 @@ locals {
 
 module "api_fn" {
   
-  source                        = "../../../../../../../services/fn/premium/base/v1.7"
+  source                        = "../../../../../../../services/fn/premium/base/v1.6"
   
   
   context = var.context
